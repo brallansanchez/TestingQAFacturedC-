@@ -1,8 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using TestinQAFacturedC_.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<TestinQAFactureDbContext>(options=>options.UseSqlServer("name=DbConnection"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
